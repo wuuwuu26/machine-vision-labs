@@ -1,0 +1,17 @@
+{
+  "name": "cifar100_resnet10_rmsprop_lr0.001_schedconst",
+  "arch": "resnet10",
+  "opt": "rmsprop",
+  "lr": 0.001,
+  "sched": "const",
+  "dataset": "cifar100",
+  "epochs": 50,
+  "params": 4949412,
+  "best_acc": 51.7,
+  "best_epoch": 41,
+  "total_time": 399.054053068161,
+  "device": "cuda",
+  "seed": 42,
+  "pretrained": false,
+  "amp": true
+}

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Model weights and large arrays
+*.pth
+*.pt
+*.ckpt
+*.npy
+*.ply
+lab1/results/**/*.npy
+lab1/results/**/*.ply
+lab2/result_param_sweep/*.ply
+
+# Datasets / checkpoints (keep the placeholder README files)
+lab2/dtu_test_scan9/*
+!lab2/dtu_test_scan9/README.md
+lab2/tf_model_blendedmvs_200301/*
+!lab2/tf_model_blendedmvs_200301/README.md
+lab4/cv_homework2/data/cifar-100-python/
+lab4/cv_homework2/data/*.tar.gz
+lab4/cv_homework2/results/*.pth
+
+# Nested git repositories from upstream copies
+**/.git/

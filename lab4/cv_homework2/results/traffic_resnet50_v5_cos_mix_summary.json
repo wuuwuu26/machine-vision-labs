@@ -1,0 +1,17 @@
+{
+  "name": "traffic_resnet50_v5_cos_mix",
+  "arch": "resnet50",
+  "opt": "sgd",
+  "lr": 0.03,
+  "sched": "cosine",
+  "dataset": "traffic",
+  "epochs": 40,
+  "params": 23520842,
+  "best_acc": 94.75308641975309,
+  "best_epoch": 32,
+  "total_time": 1869.8285019397736,
+  "device": "cuda",
+  "seed": 42,
+  "pretrained": false,
+  "amp": true
+}

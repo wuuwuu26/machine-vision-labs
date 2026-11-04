@@ -1,0 +1,17 @@
+{
+  "name": "cifar100_resnet18_kdsoft_T4_a0.7",
+  "arch": "resnet18",
+  "opt": "sgd",
+  "lr": 0.1,
+  "sched": "step",
+  "dataset": "cifar100",
+  "epochs": 50,
+  "params": 11220132,
+  "best_acc": 73.46,
+  "best_epoch": 49,
+  "total_time": 1381.5791039466858,
+  "device": "cuda",
+  "seed": 42,
+  "pretrained": false,
+  "amp": true
+}

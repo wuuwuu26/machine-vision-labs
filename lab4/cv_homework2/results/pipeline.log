@@ -1,0 +1,119 @@
+======== [1/4] 实验矩阵 ========
+
+######## STAGE 0 ########
+
+>>> START original
+    /home/user/venvs/cvhw2/bin/python resnet-cifar100.py -c config.yml --device 0 --epochs 5 --workers 8
+[OK] original
+
+######## STAGE 1 ########
+
+>>> START cifar100_resnet10_sgd_lr0.001_schedconst
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_sgd_lr0.001_schedconst --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt sgd --lr 0.001 --sched const
+[OK] cifar100_resnet10_sgd_lr0.001_schedconst
+
+>>> START cifar100_resnet10_sgd_lr0.1_schedstep
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_sgd_lr0.1_schedstep --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt sgd --lr 0.1 --sched step
+[OK] cifar100_resnet10_sgd_lr0.1_schedstep
+
+######## STAGE 2 ########
+
+>>> START cifar100_resnet10_sgd_lr0.1_schedconst
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_sgd_lr0.1_schedconst --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt sgd --lr 0.1 --sched const
+[OK] cifar100_resnet10_sgd_lr0.1_schedconst
+
+>>> START cifar100_resnet10_adam_lr0.001_schedconst
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_adam_lr0.001_schedconst --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt adam --lr 0.001 --sched const
+[OK] cifar100_resnet10_adam_lr0.001_schedconst
+
+>>> START cifar100_resnet10_adamw_lr0.001_schedconst
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_adamw_lr0.001_schedconst --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt adamw --lr 0.001 --sched const
+[OK] cifar100_resnet10_adamw_lr0.001_schedconst
+
+>>> START cifar100_resnet10_rmsprop_lr0.001_schedconst
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_rmsprop_lr0.001_schedconst --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt rmsprop --lr 0.001 --sched const
+[OK] cifar100_resnet10_rmsprop_lr0.001_schedconst
+
+######## STAGE 3 ########
+
+>>> START cifar100_resnet10_sgd_lr0.01c_schedconst
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_sgd_lr0.01c_schedconst --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt sgd --lr 0.01 --sched const
+[OK] cifar100_resnet10_sgd_lr0.01c_schedconst
+
+>>> START cifar100_resnet10_sgd_lr0.3c_schedconst
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet10_sgd_lr0.3c_schedconst --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet10 --opt sgd --lr 0.3 --sched const
+[OK] cifar100_resnet10_sgd_lr0.3c_schedconst
+
+######## STAGE 4 ########
+
+>>> START cifar100_resnet18_sgd_lr0.1_schedstep
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet18_sgd_lr0.1_schedstep --data-root ./data --workers 8 --bsize 256 --epochs 50 --amp --arch resnet18 --opt sgd --lr 0.1 --sched step
+[OK] cifar100_resnet18_sgd_lr0.1_schedstep
+
+>>> START cifar100_resnet50_sgd_lr0.1_schedstep
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet50_sgd_lr0.1_schedstep --data-root ./data --workers 8 --bsize 128 --epochs 50 --amp --arch resnet50 --opt sgd --lr 0.1 --sched step
+[FAIL] cifar100_resnet50_sgd_lr0.1_schedstep -> see /home/user/rvclab4/cv_homework2/results/cifar100_resnet50_sgd_lr0.1_schedstep.log
+
+######## STAGE 5 ########
+
+>>> START cifar100_resnet18_kdsoft_T4_a0.7
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet18_kdsoft_T4_a0.7 --data-root ./data --workers 8 --bsize 128 --epochs 50 --amp --arch resnet18 --opt sgd --lr 0.1 --sched step --kd --kd-mode soft --T 4 --alpha 0.7 --teacher /home/user/rvclab4/cv_homework2/results/cifar100_resnet50_sgd_lr0.1_schedstep_best.pth
+[OK] cifar100_resnet18_kdsoft_T4_a0.7
+
+>>> START cifar100_resnet18_kdlogit_T1_a0.5
+    /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet18_kdlogit_T1_a0.5 --data-root ./data --workers 8 --bsize 128 --epochs 50 --amp --arch resnet18 --opt sgd --lr 0.1 --sched step --kd --kd-mode logit --T 1 --alpha 0.5 --teacher /home/user/rvclab4/cv_homework2/results/cifar100_resnet50_sgd_lr0.1_schedstep_best.pth
+[OK] cifar100_resnet18_kdlogit_T1_a0.5
+
+######## STAGE traffic ########
+
+>>> START traffic_resnet18_v1_plain
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet18_v1_plain --data-root ./data/Traffic_sign --workers 8 --bsize 64 --epochs 50 --amp --arch resnet18 --opt sgd --lr 0.05 --sched step --img-size 128
+[FAIL] traffic_resnet18_v1_plain -> see /home/user/rvclab4/cv_homework2/results/traffic_resnet18_v1_plain.log
+
+>>> START traffic_resnet18_v2_aug_ls
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet18_v2_aug_ls --data-root ./data/Traffic_sign --workers 8 --bsize 64 --epochs 50 --amp --arch resnet18 --opt sgd --lr 0.05 --sched step --dataset traffic --img-size 128 --strong-aug --label-smoothing 0.1
+[OK] traffic_resnet18_v2_aug_ls
+
+>>> START traffic_resnet18_v3_aug_ls_bal
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet18_v3_aug_ls_bal --data-root ./data/Traffic_sign --workers 8 --bsize 64 --epochs 50 --amp --arch resnet18 --opt sgd --lr 0.05 --sched step --balance --dataset traffic --img-size 128 --strong-aug --label-smoothing 0.1
+[OK] traffic_resnet18_v3_aug_ls_bal
+
+>>> START traffic_resnet18_v4_cos_mix
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet18_v4_cos_mix --data-root ./data/Traffic_sign --workers 8 --bsize 64 --epochs 80 --amp --arch resnet18 --opt sgd --lr 0.05 --sched cosine --balance --mixup 0.2 --dataset traffic --img-size 128 --strong-aug --label-smoothing 0.1
+[OK] traffic_resnet18_v4_cos_mix
+
+>>> START traffic_resnet50_v5_cos_mix
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet50_v5_cos_mix --data-root ./data/Traffic_sign --workers 8 --bsize 32 --epochs 60 --amp --arch resnet50 --opt sgd --lr 0.03 --sched cosine --balance --mixup 0.2 --dataset traffic --img-size 128 --strong-aug --label-smoothing 0.1
+[FAIL] traffic_resnet50_v5_cos_mix -> see /home/user/rvclab4/cv_homework2/results/traffic_resnet50_v5_cos_mix.log
+
+>>> START traffic_resnet18_v6_pretrained
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet18_v6_pretrained --data-root ./data/Traffic_sign --workers 8 --bsize 64 --epochs 40 --amp --arch resnet18 --pretrained --opt sgd --lr 0.005 --sched cosine --balance --dataset traffic --img-size 128 --strong-aug --label-smoothing 0.1
+[OK] traffic_resnet18_v6_pretrained
+
+=== ALL DONE ===
+======== [2/4] 交通标志混淆矩阵（自动选最佳 run）=========
+best traffic run = traffic_resnet18_v6_pretrained
+Traceback (most recent call last):
+  File "/home/user/rvclab4/cv_homework2/eval_traffic.py", line 64, in <module>
+    main()
+  File "/home/user/rvclab4/cv_homework2/eval_traffic.py", line 43, in main
+    model.load_state_dict(torch.load(ckpt, map_location=device))
+  File "/home/user/venvs/cvhw2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2639, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for ResNetCustom:
+	size mismatch for conv1.weight: copying a param with shape torch.Size([64, 3, 7, 7]) from checkpoint, the shape in current model is torch.Size([64, 3, 3, 3]).
+======== [3/4] 生成图表 ========
+wrote fig0_dataset.png
+wrote fig1_optim.png
+wrote fig2_lr.png
+wrote fig3_decay.png
+wrote fig4_arch.png
+wrote fig5_kd.png
+wrote fig6_traffic.png
+wrote fig7_traffic_curves.png
+ALL FIGURES DONE
+======== [4/4] 生成报告 ========
+report.html written: 717341 bytes
+PDF written: /home/user/rvclab4/cv_homework2/实验报告-图像分类2.pdf 1557424 bytes
+Pages:           8
+PIPELINE_DONE

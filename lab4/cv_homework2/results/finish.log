@@ -1,0 +1,13 @@
++ /home/user/venvs/cvhw2/bin/python run_all.py traffic
+
+######## STAGE traffic ########
+
+>>> START traffic_resnet18_v1_plain
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet18_v1_plain --data-root ./data/Traffic_sign --workers 6 --bsize 64 --epochs 50 --amp --dataset traffic --arch resnet18 --opt sgd --lr 0.05 --sched step --img-size 128
+[OK] traffic_resnet18_v1_plain
+[SKIP] traffic_resnet18_v2_aug_ls
+[SKIP] traffic_resnet18_v3_aug_ls_bal
+[SKIP] traffic_resnet18_v4_cos_mix
+
+>>> START traffic_resnet50_v5_cos_mix
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet50_v5_cos_mix --data-root ./data/Traffic_sign --workers 6 --bsize 16 --epochs 60 --amp --arch resnet50 --opt sgd --lr 0.03 --sched cosine --balance --mixup 0.2 --img-size 96 --dataset traffic --img-size 128 --strong-aug --label-smoothing 0.1 --img-size 96

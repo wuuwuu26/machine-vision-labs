@@ -1,0 +1,69 @@
++ /home/user/venvs/cvhw2/bin/python run_all.py traffic
+
+######## STAGE traffic ########
+[SKIP] traffic_resnet18_v1_plain
+[SKIP] traffic_resnet18_v2_aug_ls
+[SKIP] traffic_resnet18_v3_aug_ls_bal
+[SKIP] traffic_resnet18_v4_cos_mix
+
+>>> START traffic_resnet50_v5_cos_mix
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet50_v5_cos_mix --data-root ./data/Traffic_sign --workers 6 --bsize 16 --epochs 40 --amp --arch resnet50 --opt sgd --lr 0.03 --sched cosine --balance --mixup 0.2 --dataset traffic --img-size 96 --strong-aug --label-smoothing 0.1
+[OK] traffic_resnet50_v5_cos_mix
+[SKIP] traffic_resnet18_v6_pretrained
+
+=== ALL DONE ===
++ '[' '!' -f results/cifar100_resnet50_sgd_lr0.1_schedstep_summary.json ']'
++ /home/user/venvs/cvhw2/bin/python train.py --name cifar100_resnet50_sgd_lr0.1_schedstep --data-root ./data --workers 4 --bsize 128 --epochs 50 --amp --arch resnet50 --opt sgd --lr 0.1 --sched step --warm-start results/cifar100_resnet50_sgd_lr0.1_schedstep_best.pth --start-epoch 35
+/home/user/rvclab4/cv_homework2/train.py:355: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  scheduler.step()
+[WARM] cifar100_resnet50_sgd_lr0.1_schedstep 从 results/cifar100_resnet50_sgd_lr0.1_schedstep_best.pth 热启动，续训 epoch 35~50（已有 best=69.60%）
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep35 loss=0.2489 acc=69.46 lr=0.01000 t=82.3s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep36 loss=0.2215 acc=69.54 lr=0.01000 t=44.4s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep37 loss=0.1980 acc=69.55 lr=0.01000 t=44.4s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep38 loss=0.1817 acc=69.69 lr=0.01000 t=44.4s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep39 loss=0.1629 acc=69.96 lr=0.01000 t=44.4s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep40 loss=0.1472 acc=69.38 lr=0.01000 t=44.6s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep41 loss=0.1255 acc=69.94 lr=0.00100 t=44.7s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep42 loss=0.1190 acc=70.16 lr=0.00100 t=50.2s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep43 loss=0.1200 acc=69.96 lr=0.00100 t=46.4s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep44 loss=0.1151 acc=69.90 lr=0.00100 t=46.0s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep45 loss=0.1147 acc=70.08 lr=0.00100 t=46.9s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep46 loss=0.1132 acc=70.08 lr=0.00100 t=45.9s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep47 loss=0.1105 acc=69.91 lr=0.00100 t=46.0s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep48 loss=0.1082 acc=70.03 lr=0.00100 t=50.1s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep49 loss=0.1070 acc=70.06 lr=0.00100 t=47.4s
+[cifar100_resnet50_sgd_lr0.1_schedstep] ep50 loss=0.1047 acc=70.00 lr=0.00100 t=46.0s
+[DONE] cifar100_resnet50_sgd_lr0.1_schedstep best_acc=70.16@42 total=12.9min params=23705252
++ /home/user/venvs/cvhw2/bin/python run_all.py 0f
+
+######## STAGE 0f ########
+
+>>> START original
+    /home/user/venvs/cvhw2/bin/python resnet-cifar100.py -c config.yml --device 0 --workers 8
+[OK] original
+
+=== ALL DONE ===
++ /home/user/venvs/cvhw2/bin/python make_figures.py
+wrote fig0_dataset.png
+wrote fig1_optim.png
+wrote fig2_lr.png
+wrote fig3_decay.png
+wrote fig4_arch.png
+wrote fig5_kd.png
+wrote fig6_traffic.png
+wrote fig7_traffic_curves.png
+ALL FIGURES DONE
+++ /home/user/venvs/cvhw2/bin/python -
++ BEST=traffic_resnet18_v6_pretrained
++ '[' -n traffic_resnet18_v6_pretrained ']'
++ ARCH=resnet18
++ case "$BEST" in
++ /home/user/venvs/cvhw2/bin/python eval_traffic.py traffic_resnet18_v6_pretrained --arch resnet18
+overall 98.15
+per_class {'GuideSign': 100.0, 'M1': 92.9, 'M4': 97.6, 'M5': 100.0, 'M6': 87.5, 'M7': 100.0, 'P1': 100.0, 'P10_50': 100.0, 'P12': 100.0, 'W1': 100.0}
++ /home/user/venvs/cvhw2/bin/python make_report.py
+report.html written: 744537 bytes
+PDF written: /home/user/rvclab4/cv_homework2/实验报告-图像分类2.pdf 1615435 bytes
+Pages:           8
++ echo FINISH_DONE
+FINISH_DONE

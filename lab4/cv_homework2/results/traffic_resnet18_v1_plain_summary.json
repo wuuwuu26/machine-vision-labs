@@ -1,0 +1,17 @@
+{
+  "name": "traffic_resnet18_v1_plain",
+  "arch": "resnet18",
+  "opt": "sgd",
+  "lr": 0.05,
+  "sched": "step",
+  "dataset": "traffic",
+  "epochs": 50,
+  "params": 11173962,
+  "best_acc": 97.8395061728395,
+  "best_epoch": 30,
+  "total_time": 1298.7656972408295,
+  "device": "cuda",
+  "seed": 42,
+  "pretrained": false,
+  "amp": true
+}

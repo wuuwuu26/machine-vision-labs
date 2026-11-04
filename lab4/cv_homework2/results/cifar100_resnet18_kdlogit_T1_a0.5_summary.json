@@ -1,0 +1,17 @@
+{
+  "name": "cifar100_resnet18_kdlogit_T1_a0.5",
+  "arch": "resnet18",
+  "opt": "sgd",
+  "lr": 0.1,
+  "sched": "step",
+  "dataset": "cifar100",
+  "epochs": 50,
+  "params": 11220132,
+  "best_acc": 71.97,
+  "best_epoch": 46,
+  "total_time": 1417.255866765976,
+  "device": "cuda",
+  "seed": 42,
+  "pretrained": false,
+  "amp": true
+}

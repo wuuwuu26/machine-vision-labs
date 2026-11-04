@@ -1,0 +1,9 @@
+torch
+torchvision
+matplotlib
+numpy
+pillow
+pytorch-ignite
+tqdm
+configargparse
+pyyaml

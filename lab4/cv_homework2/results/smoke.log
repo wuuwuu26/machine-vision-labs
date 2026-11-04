@@ -1,0 +1,15 @@
+torch 2.11.0+cu128 cuda True NVIDIA GeForce RTX 4070 Laptop GPU
+{"python": "3.12.3", "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39", "torch": "2.11.0+cu128", "torchvision": "0.26.0+cu128", "cuda_available": true, "cuda_version": "12.8", "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU", "gpu_mem_gb": 7.6, "driver": "595.104.02"}
+--- smoke: cifar100 resnet10 1ep
+[smoke_cifar] ep01 loss=3.7841 acc=17.79 lr=0.10000 t=28.7s
+[DONE] smoke_cifar best_acc=17.79@1 total=0.5min params=4949412
+--- smoke: traffic resnet18 1ep (aug+balance+mixup)
+[smoke_traffic] ep01 loss=2.0531 acc=29.94 lr=0.05000 t=50.9s
+[DONE] smoke_traffic best_acc=29.94@1 total=0.8min params=11173962
+--- smoke: traffic resnet18 pretrained 1ep
+[smoke_traffic_pt] ep01 loss=0.9156 acc=94.44 lr=0.00500 t=19.7s
+[DONE] smoke_traffic_pt best_acc=94.44@1 total=0.3min params=11181642
+--- smoke: cifar100 resnet50 1ep
+[smoke_r50] ep01 loss=4.7093 acc=4.58 lr=0.10000 t=85.9s
+[DONE] smoke_r50 best_acc=4.58@1 total=1.4min params=23705252
+SMOKE_OK

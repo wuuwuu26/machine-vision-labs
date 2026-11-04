@@ -1,0 +1,17 @@
+{
+  "name": "cifar100_resnet50_sgd_lr0.1_schedstep",
+  "arch": "resnet50",
+  "opt": "sgd",
+  "lr": 0.1,
+  "sched": "step",
+  "dataset": "cifar100",
+  "epochs": 50,
+  "params": 23705252,
+  "best_acc": 70.16,
+  "best_epoch": 42,
+  "total_time": 776.8584756851196,
+  "device": "cuda",
+  "seed": 42,
+  "pretrained": false,
+  "amp": true
+}

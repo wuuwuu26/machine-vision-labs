@@ -1,0 +1,11 @@
++ /home/user/venvs/cvhw2/bin/python run_all.py traffic
+
+######## STAGE traffic ########
+[SKIP] traffic_resnet18_v1_plain
+[SKIP] traffic_resnet18_v2_aug_ls
+[SKIP] traffic_resnet18_v3_aug_ls_bal
+[SKIP] traffic_resnet18_v4_cos_mix
+[RESUME] traffic_resnet50_v5_cos_mix 检测到未完成的 CSV，将从断点继续
+
+>>> START traffic_resnet50_v5_cos_mix
+    /home/user/venvs/cvhw2/bin/python train.py --name traffic_resnet50_v5_cos_mix --data-root ./data/Traffic_sign --workers 6 --bsize 16 --epochs 60 --amp --resume --arch resnet50 --opt sgd --lr 0.03 --sched cosine --balance --mixup 0.2 --img-size 96 --dataset traffic --img-size 128 --strong-aug --label-smoothing 0.1 --img-size 96
