@@ -5,9 +5,13 @@ A compact collection of three machine-vision course experiments: monocular depth
 **English** | [简体中文](README.zh-CN.md)
 
 <p align="center">
-  <img src="lab1/report/figs/fig0_depth_error_en.png" width="32%" alt="Monocular depth error map" />
-  <img src="lab2/report_figures/fig_pointcloud_cc_en.png" width="32%" alt="MVS point cloud" />
-  <img src="lab4/cv_homework2/results/figs/fig6_traffic_en.png" width="32%" alt="Traffic sign results" />
+  <img src="lab1/report/figs/fig0_depth_error_en.png" width="100%" alt="Monocular depth error map" />
+</p>
+<p align="center">
+  <img src="lab2/report_figures/fig_pointcloud_cc_en.png" width="100%" alt="MVS point cloud" />
+</p>
+<p align="center">
+  <img src="lab4/cv_homework2/results/figs/fig6_traffic_en.png" width="100%" alt="Traffic sign results" />
 </p>
 
 ## Experiments at a glance
